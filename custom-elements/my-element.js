@@ -14,10 +14,12 @@ template.innerHTML = `
 
 
 class myElement extends HTMLElement {
+    //Primer ciclo de vida, constructor
     constructor() {
         super();
         this.p = document.createElement('p');
     }
+    //Segundo ciclo de vida
     connectedCallback() {
         this.p.textContent = "Web component demo";
         this.appendChild(template);
