@@ -1,6 +1,14 @@
 const template = document.createElement('div');
 template.innerHTML = `
-<p>Web component demo 2</p>
+<style>
+    p {
+        color:blue;
+    }
+    .texto {
+        color:red;
+    }
+</style>
+<p class='texto'>Web component demo 2</p>
 <p>Aqui estamos probando la generación de los web components</p>
 `;
 
@@ -12,7 +20,7 @@ class myElement extends HTMLElement {
     }
     connectedCallback() {
         this.p.textContent = "Web component demo";
-        this.appendChild(this.p);
+        this.appendChild(template);
     }
 }
 customElements.define('my-element', myElement);
