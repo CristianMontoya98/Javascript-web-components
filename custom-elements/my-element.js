@@ -12,7 +12,6 @@ template.innerHTML = `
 <p>Aqui estamos probando la generación de los web components</p>
 `;
 
-
 class myElement extends HTMLElement {
     //Primer ciclo de vida, constructor
     constructor() {
