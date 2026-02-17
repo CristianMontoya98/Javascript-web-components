@@ -30,7 +30,7 @@ class myElement extends HTMLElement {
     //En este metodo clonamos todos los elementos anidados del template
     render(){
         const template = this.getTemplate();
-        this.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
     //Segundo ciclo de vida
     connectedCallback() {
