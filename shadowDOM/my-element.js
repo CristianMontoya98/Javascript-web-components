@@ -2,6 +2,7 @@ class myElement extends HTMLElement {
     //Primer ciclo de vida, constructor
     constructor() {
         super();
+        this.attachShadow({mode: 'open'});
     }
 
     getTemplate(){
