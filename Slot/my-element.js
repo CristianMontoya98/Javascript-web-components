@@ -1,39 +1,42 @@
 class myElement extends HTMLElement {
-    //Primer ciclo de vida, constructor
-    constructor() {
-        super();
-    }
-
-    getTemplate(){
-        const template = document.createElement('template');
-        template.innerHTML = `
-            <section>
-                <h2>Uso de template</h2>
-                <div>
-                    <p>Ejemplo de como se crea y usa una template en web components<p>
-                </div
-            </section>
-            ${this.getStyles()}
-        `;
-        return template;
-    }
-    getStyles(){
-        return `
-        <style>
-            h2 {
-                color: red;
-            }
-        </style>
-        `
-    }
-    //En este metodo clonamos todos los elementos anidados del template
-    render(){
-        const template = this.getTemplate();
-        this.appendChild(template.content.cloneNode(true));
-    }
-    //Segundo ciclo de vida
-    connectedCallback() {
-        this.render();
-    }
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
+  getTemplate() {
+    const template = document.createElement("template");
+    template.innerHTML = `
+      <section>
+        <h2>
+          <slot name="title"></slot>
+        </h2>
+        <div>
+         <p>
+          <slot name="parrafo"></slot>
+         </p>
+        </div>
+      </section>
+      ${this.getStyles()}
+    `;
+    return template;
+  }
+  getStyles() {
+    return `
+      <style>
+        h2 {
+          color: red;
+        }
+        p {
+          color: blue;
+        }
+      </style>
+    `;
+  }
+  render() {
+    this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
+  }
+  connectedCallback() {
+    this.render();
+  }
 }
-customElements.define('my-element', myElement);
+customElements.define("my-element", myElement);
