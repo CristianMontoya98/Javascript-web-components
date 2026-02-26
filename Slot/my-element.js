@@ -11,9 +11,10 @@ class myElement extends HTMLElement {
           <slot name="title"></slot>
         </h2>
         <div>
-         <p>
-          <slot name="parrafo"></slot>
-         </p>
+          <p>
+            <slot name="parrafo"></slot>
+            <slot name="parrafo2"></slot>
+          </p>
         </div>
       </section>
       ${this.getStyles()}
