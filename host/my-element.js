@@ -31,6 +31,16 @@ class myElement extends HTMLElement {
                 background: grey;
                 color: white;
             }
+            :host(.blue){
+                background: blue;
+            }
+            :host([yellow]) {
+                background: yellow;
+                color: black;
+            }
+            :host-context(article.card) {
+                display: block;
+                max-width: 100%;}
         </style>
         `
     }
