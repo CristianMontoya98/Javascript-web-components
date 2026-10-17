@@ -38,9 +38,13 @@ class myElement extends HTMLElement {
                 background: yellow;
                 color: black;
             }
+            :host([yellow]) h1 {
+                color: red;
+            }
             :host-context(article.card) {
                 display: block;
-                max-width: 100%;}
+                max-width: 100%;
+            }
         </style>
         `
     }
